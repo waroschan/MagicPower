@@ -199,7 +199,7 @@ body {
 .section-anthem {
     padding: 8rem 1rem; /* パディングを大きく */
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('党歌/水下音頭イメージ画像.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('党歌/水下音頭イメージ画像.png'); /* 透明度を下げて画像を見えやすく */
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
