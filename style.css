@@ -1,10 +1,11 @@
 :root {
-    --primary-color: #ffc107; /* Gold */
-    --secondary-color: #ff4500; /* OrangeRed */
-    --dark-bg: #1a1a1a;
-    --light-text: #f0f0f0;
-    --card-bg: #2c2c2c;
-    --border-color: #444;
+    --primary-color: #FF00FF; /* マゼンタ - ギラギラ */
+    --secondary-color: #00FFFF; /* シアン - チカチカ */
+    --accent-color: #FFFF00; /* 蛍光イエロー - 目立つ */
+    --dark-bg: #0D0D0D; /* さらに暗い背景 */
+    --light-text: #FFFFFF; /* 真っ白なテキスト */
+    --card-bg: #1C1C1C; /* カード背景も暗く */
+    --border-color: #333333; /* ボーダーも暗く */
 }
 
 body {
@@ -12,8 +13,9 @@ body {
     background-color: var(--dark-bg);
     color: var(--light-text);
     margin: 0;
-    padding-top: 60px; /* Offset for fixed navbar */
+    padding-top: 60px;
     line-height: 1.7;
+    overflow-x: hidden; /* 横スクロールバーを非表示 */
 }
 
 .container {
@@ -24,14 +26,14 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: rgba(26, 26, 26, 0.9);
-    border-bottom: 2px solid var(--primary-color);
+    background-color: rgba(13, 13, 13, 0.98); /* ほぼ黒で透過 */
+    border-bottom: 3px solid var(--primary-color); /* 太いボーダー */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* 影を強調 */
 }
 
 .navbar .container {
@@ -44,8 +46,9 @@ body {
 .nav-logo {
     color: var(--primary-color);
     font-weight: 900;
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* ロゴを大きく */
     text-decoration: none;
+    text-shadow: 0 0 10px var(--primary-color); /* ネオン風シャドウ */
 }
 
 .nav-menu {
@@ -58,257 +61,350 @@ body {
 .nav-menu li a {
     color: var(--light-text);
     text-decoration: none;
-    padding: 1rem;
-    transition: color 0.3s ease;
+    padding: 1rem 1.5rem; /* パディングを広げる */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* シャドウもトランジション */
     font-weight: 700;
+    font-size: 1.1rem;
 }
 
 .nav-menu li a:hover {
-    color: var(--primary-color);
+    color: var(--accent-color); /* ホバーで蛍光イエロー */
+    text-shadow: 0 0 15px var(--accent-color); /* ネオン風シャドウ */
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('その他/ヘッダー.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('その他/ヘッダー.png');
     background-size: cover;
-    background-position: center top;
+    background-position: center center; /* 画像の中心をヘッダーの中心に合わせる */
     color: #fff;
     text-align: center;
-    padding: 8rem 1rem;
+    padding: 10rem 1rem; /* パディングをさらに大きく */
+    border-bottom: 5px solid var(--secondary-color); /* シアンの太いボーダー */
+    box-shadow: inset 0 -10px 20px rgba(0, 255, 255, 0.3); /* 下部に光るシャドウ */
 }
 
 .hero-content h1 {
-    font-size: 3.8rem;
+    font-size: 4.5rem; /* タイトルをさらに大きく */
     font-weight: 900;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); /* 派手なネオンシャドウ */
+    animation: pulse 2s infinite alternate; /* 脈動アニメーション */
+}
+
+@keyframes pulse {
+    from { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color); }
+    to { text-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color); }
 }
 
 .hero-content .slogan {
-    font-size: 1.6rem;
-    margin-bottom: 2rem;
+    font-size: 1.8rem; /* スローガンも大きく */
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    color: var(--accent-color); /* 蛍光イエロー */
+    text-shadow: 0 0 10px var(--accent-color); /* ネオン風シャドウ */
 }
 
 .btn {
-    padding: 0.8rem 2rem;
-    border-radius: 5px;
+    padding: 1rem 3rem; /* ボタンを大きく */
+    border-radius: 8px; /* 角を丸く */
     text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: 900; /* 太字 */
+    font-size: 1.2rem; /* 文字も大きく */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* シャドウもトランジション */
+    border: none; /* デフォルトのボーダーをなくす */
 }
 
 .btn-primary {
     background-color: var(--primary-color);
-    color: #000;
+    color: var(--light-text);
+    box-shadow: 0 0 15px var(--primary-color); /* ネオンシャドウ */
 }
 
 .btn-primary:hover {
-    background-color: #e0a800;
+    background-color: var(--accent-color); /* ホバーで蛍光イエロー */
+    color: var(--dark-bg); /* テキストを暗く */
+    box-shadow: 0 0 25px var(--accent-color); /* シャドウを強調 */
 }
 
 /* Section Titles */
 .section-title {
     text-align: center;
-    font-size: 2.8rem;
+    font-size: 3.5rem; /* タイトルをさらに大きく */
     font-weight: 900;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     color: var(--primary-color);
-    padding-bottom: 1rem;
-    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 1.5rem;
+    border-bottom: 5px solid var(--secondary-color); /* 太いボーダー */
+    text-shadow: 0 0 15px var(--primary-color); /* ネオンシャドウ */
 }
 
 /* Officers Section */
 #officers {
-    padding: 4rem 0;
+    padding: 6rem 0; /* パディングを大きく */
+    background-color: #111; /* 背景を少し明るく */
 }
 
 .officers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* カードサイズを調整 */
+    gap: 3rem; /* ギャップを大きく */
     justify-content: center;
 }
 
 .officer-card {
     background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
+    border: 3px solid var(--primary-color); /* 太いボーダー */
+    border-radius: 15px; /* 角を丸く */
     text-align: center;
-    padding: 2rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    padding: 2.5rem; /* パディングを大きく */
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5); /* 派手なシャドウ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* トランジション */
+}
+
+.officer-card:hover {
+    transform: translateY(-15px) scale(1.03); /* 浮き上がるように */
+    box-shadow: 0 0 30px var(--accent-color), 0 0 40px var(--accent-color); /* さらに派手なシャドウ */
+    border-color: var(--accent-color); /* ボーダーも光る */
 }
 
 .officer-img {
-    width: 150px;
-    height: 150px;
+    width: 180px; /* 画像を大きく */
+    height: 180px;
     border-radius: 50%;
-    border: 4px solid var(--primary-color);
+    border: 5px solid var(--secondary-color); /* 太いボーダー */
     object-fit: cover;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 15px var(--secondary-color); /* ネオンシャドウ */
 }
 
 .officer-name {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 2.2rem; /* 名前を大きく */
+    font-weight: 900;
     color: var(--primary-color);
-    margin: 0;
+    text-shadow: 0 0 10px var(--primary-color); /* ネオンシャドウ */
 }
 
 .officer-title {
-    font-size: 1.1rem;
-    color: var(--secondary-color);
+    font-size: 1.3rem; /* 役職を大きく */
+    color: var(--accent-color); /* 蛍光イエロー */
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .officer-bio {
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 /* Anthem Section */
 .section-anthem {
-    padding: 6rem 1rem;
+    padding: 8rem 1rem; /* パディングを大きく */
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('党歌/水下音頭イメージ画像.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('党歌/水下音頭イメージ画像.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Parallax effect */
+    background-attachment: fixed;
     color: #fff;
+    border-top: 5px solid var(--accent-color); /* 太いボーダー */
+    border-bottom: 5px solid var(--accent-color);
+    box-shadow: inset 0 0 30px rgba(255, 255, 0, 0.5); /* 光るシャドウ */
+}
+
+.section-anthem h2 {
+    color: var(--accent-color); /* 蛍光イエロー */
+    text-shadow: 0 0 15px var(--accent-color); /* ネオンシャドウ */
 }
 
 .section-anthem audio {
     width: 100%;
-    max-width: 600px;
-    margin-top: 1rem;
+    max-width: 700px; /* プレイヤーを大きく */
+    margin-top: 2rem;
+    box-shadow: 0 0 20px var(--secondary-color); /* シアンのシャドウ */
+    border-radius: 10px;
 }
 
 /* Manifesto Section */
 #manifesto {
-    padding: 4rem 0;
-    background-color: #222;
+    padding: 6rem 0;
+    background-color: #111;
 }
 
 .manifesto-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
 }
 
 .manifesto-card {
     background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    border: 3px solid var(--secondary-color); /* シアンの太いボーダー */
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* 派手なシャドウ */
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .manifesto-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.2);
+    transform: translateY(-10px) scale(1.02); /* 浮き上がるように */
+    box-shadow: 0 0 30px var(--primary-color), 0 0 40px var(--primary-color); /* さらに派手なシャドウ */
+    border-color: var(--primary-color); /* ボーダーも光る */
 }
 
 .manifesto-card.full-width {
     grid-column: 1 / -1;
+    background-color: #222; /* 少し明るく */
+    border-color: var(--accent-color); /* 蛍光イエローのボーダー */
+    box-shadow: 0 0 25px rgba(255, 255, 0, 0.5); /* 蛍光イエローのシャドウ */
 }
 
 .manifesto-card h3 {
-    font-size: 1.6rem;
-    color: var(--primary-color);
+    font-size: 1.8rem;
+    color: var(--accent-color); /* 蛍光イエロー */
+    text-shadow: 0 0 10px var(--accent-color); /* ネオンシャドウ */
+    border-bottom: 3px solid var(--primary-color); /* 太いボーダー */
+    padding-bottom: 0.8rem;
 }
 
 /* News Section */
 #news {
-    padding: 4rem 0;
+    padding: 6rem 0;
+    background-color: #0D0D0D;
 }
 
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* カードサイズを調整 */
+    gap: 3rem;
 }
 
 .news-item {
     background-color: var(--card-bg);
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5); /* 派手なシャドウ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid var(--primary-color); /* 太いボーダー */
+}
+
+.news-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 0 30px var(--accent-color), 0 0 40px var(--accent-color); /* さらに派手なシャドウ */
+    border-color: var(--accent-color);
 }
 
 .news-image {
-    height: 200px;
+    height: 220px; /* 画像を大きく */
     background-size: cover;
     background-position: center;
 }
 
 .news-content {
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
 .news-content h4 {
-    font-size: 1.3rem;
-    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
     color: var(--primary-color);
+    text-shadow: 0 0 8px var(--primary-color);
 }
 
 .news-date {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #aaa;
 }
 
 /* Join Section */
 .section-join {
-    padding: 4rem 0;
+    padding: 6rem 0;
     text-align: center;
-    background-color: #222;
+    background-color: #111;
+    border-top: 5px solid var(--secondary-color);
+    border-bottom: 5px solid var(--secondary-color);
+    box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.5); /* 光るシャドウ */
 }
 
 .join-buttons {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .btn-secondary {
     background-color: var(--secondary-color);
-    color: #fff;
+    color: var(--light-text);
+    border: 3px solid var(--secondary-color);
+    box-shadow: 0 0 15px var(--secondary-color);
 }
 
 .btn-secondary:hover {
-    background-color: #d43c00;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    box-shadow: 0 0 25px var(--primary-color);
 }
 
 .btn-tertiary {
     background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    margin-left: 1rem;
+    color: var(--accent-color);
+    border: 3px solid var(--accent-color);
+    margin-left: 1.5rem;
+    box-shadow: 0 0 15px var(--accent-color);
 }
 
 .btn-tertiary:hover {
-    background-color: var(--primary-color);
-    color: #000;
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
+    box-shadow: 0 0 25px var(--accent-color);
 }
 
 /* Footer */
 footer {
     background-color: #000;
     text-align: center;
-    padding: 2rem 1rem;
-    border-top: 3px solid var(--primary-color);
+    padding: 3rem 1rem;
+    border-top: 5px solid var(--primary-color);
+    box-shadow: inset 0 10px 20px rgba(255, 0, 255, 0.3); /* 上部に光るシャドウ */
 }
 
 .footer-credits {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #aaa;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .nav-menu {
-        display: none; /* Simple responsive solution, could be a burger menu */
+        display: none;
     }
-    .about-content {
-        flex-direction: column;
-        text-align: center;
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-content .slogan {
+        font-size: 1.4rem;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+    .officer-img {
+        width: 120px;
+        height: 120px;
+    }
+    .officer-name {
+        font-size: 1.8rem;
+    }
+    .officer-title {
+        font-size: 1rem;
+    }
+    .manifesto-card h3 {
+        font-size: 1.5rem;
+    }
+    .news-content h4 {
+        font-size: 1.3rem;
+    }
+    .btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+    .btn-tertiary {
+        margin-left: 0.5rem;
     }
 }
