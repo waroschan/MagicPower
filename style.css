@@ -1,0 +1,314 @@
+:root {
+    --primary-color: #ffc107; /* Gold */
+    --secondary-color: #ff4500; /* OrangeRed */
+    --dark-bg: #1a1a1a;
+    --light-text: #f0f0f0;
+    --card-bg: #2c2c2c;
+    --border-color: #444;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    margin: 0;
+    padding-top: 60px; /* Offset for fixed navbar */
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(26, 26, 26, 0.9);
+    border-bottom: 2px solid var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.nav-logo {
+    color: var(--primary-color);
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li a {
+    color: var(--light-text);
+    text-decoration: none;
+    padding: 1rem;
+    transition: color 0.3s ease;
+    font-weight: 700;
+}
+
+.nav-menu li a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('その他/ヘッダー.png');
+    background-size: cover;
+    background-position: center top;
+    color: #fff;
+    text-align: center;
+    padding: 8rem 1rem;
+}
+
+.hero-content h1 {
+    font-size: 3.8rem;
+    font-weight: 900;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+.hero-content .slogan {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #e0a800;
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+/* Officers Section */
+#officers {
+    padding: 4rem 0;
+}
+
+.officers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.officer-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.officer-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+}
+
+.officer-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.officer-title {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.officer-bio {
+    font-size: 1rem;
+}
+
+/* Anthem Section */
+.section-anthem {
+    padding: 6rem 1rem;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('党歌/水下音頭イメージ画像.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Parallax effect */
+    color: #fff;
+}
+
+.section-anthem audio {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 1rem;
+}
+
+/* Manifesto Section */
+#manifesto {
+    padding: 4rem 0;
+    background-color: #222;
+}
+
+.manifesto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.manifesto-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.manifesto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.2);
+}
+
+.manifesto-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.manifesto-card h3 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+/* News Section */
+#news {
+    padding: 4rem 0;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.news-item {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.news-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.news-content {
+    padding: 1.5rem;
+}
+
+.news-content h4 {
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+}
+
+.news-date {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Join Section */
+.section-join {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: #222;
+}
+
+.join-buttons {
+    margin-top: 2rem;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #d43c00;
+}
+
+.btn-tertiary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    margin-left: 1rem;
+}
+
+.btn-tertiary:hover {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 3px solid var(--primary-color);
+}
+
+.footer-credits {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin: 1rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Simple responsive solution, could be a burger menu */
+    }
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
