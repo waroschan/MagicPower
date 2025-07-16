@@ -407,4 +407,17 @@ footer {
     .btn-tertiary {
         margin-left: 0.5rem;
     }
+    /* スマホでのボタンレイアウト調整 */
+    .join-buttons {
+        flex-direction: column; /* ボタンを縦に並べる */
+        gap: 1rem; /* ボタン間のスペース */
+        align-items: center; /* 中央揃え */
+    }
+    .btn {
+        width: 80%; /* ボタンの幅を広げる */
+        margin: 0; /* 左右のマージンをなくす */
+    }
+    .btn-tertiary {
+        margin-left: 0; /* 左マージンをなくす */
+    }
 }
